@@ -40,20 +40,20 @@ env:
 
 matrix:
   include:
-    - os: linux
-      env: TEST_SUITE=servers
-    - os: linux
-      env: TEST_SUITE=chain-core
-    - os: linux
-      env: TEST_SUITE=pool-p2p-src
-    - os: linux
-      env: TEST_SUITE=keychain
-    - os: linux
-      env: TEST_SUITE=api-util-store
-    - os: osx
-      env: TEST_SUITE=release
-#    - os: windows
+#    - os: linux
+#      env: TEST_SUITE=servers
+#    - os: linux
+#      env: TEST_SUITE=chain-core
+#    - os: linux
+#      env: TEST_SUITE=pool-p2p-src
+#    - os: linux
+#      env: TEST_SUITE=keychain
+#    - os: linux
+#      env: TEST_SUITE=api-util-store
+#    - os: osx
 #      env: TEST_SUITE=release
+    - os: windows
+      env: TEST_SUITE=release
 
 script:
   - IFS='-' read -r -a DIRS <<< "$TEST_SUITE"; DIR=${DIRS[0]};
@@ -85,7 +85,7 @@ before_deploy:
 deploy:
   provider: releases
   api_key:
-    secure: PBTFcoUmiQITkDdtFzrBlNR/5OgYHTCw+xVWGYu205xwTlj/ARBgw7DNt8dIdptLx+jOM2V5SbJqSFxs/CJ2ZcOHQZ6ubwpAJlRfuk3xDAi5JmuHYfcY+4SQ9l/0MgHnGfuml093xP7vTIYm2Vwwgdq8fd3jdWmvwgk9zgaGXB4UIXQA0yIs3EzxZpqiLg629Ouv7edMfyffwlG+rgQ1koe6sqeMCxIs0N3p97GCx19kNe0TV4dC7XAN74HreMdHmwxPKAK4xG/jtA1Snm0pMQ50Z0Kizt+0yrGOPMLnWwO9sS38iosBn3Vh1R8HKle2xBGflTtT/LG9lHdQZ5NF572q6681x6t7str4OjJ5bboy1PtNLFxG7RJCVIpp9gbouzdxIaJWRTxIdlk8UNQMrD8ieiNE6V1vZtbHGtJHRSJN1vO/XxsLlQDCyakLhG/nmSKXgiT9wIsu+zj/3oDe+LBt5QetEGYGBrCwUewjaQ7EP1rsT7alQrHTMad5DPjYftJuvfR+yBtz1qbzQwZVJpQC1KY1c476mXPQsaywuUrj56hH92p7P3vl6aMN2OPJZP+zENOVSURHc56KeTsDS55+KKzcRjCMA2L0LR1hP33+V5kavMHgCRrWIkxAkZ4eRqnermalzp8vlzL6EEoGm0VFLzv4mJmzrY1mC1LyCHo=
+    secure: VaCOjEWoaru4VaM9+pQnAx5m5eN8es0iV2JiVx55egD7hpP/ODL6rg4PPJLbop05Z2lPpWkKb7mZ3oZzNv9WcViJufQkEDGpzsazp6abjbrvwdwoxPZHP5iUCOjj7oCQS2VTr9t0fOfqEcsbOfk7s2RN24bZJp8z2uOw5QKaW8YrH83Ez8siCdmYhHtOQSpSHZKCfU9j5oo8iSpSDRpiw2pmC7GnqrUSUkosI4TwzhDLMYkzL+WLTSy2k4P+/463OubG8czhe/H4E6lXOTeOQoJu54eU+2A+9FJi7cG4bVb3l2/LOahhBE2dxencCkmIv85z+nHgWgxsnTFQgy+SGtkvJ+TGEzdzSYwL/atxT8yTxHTHqqYbFSCqoue8wF8+bEwkFq+mX8e9lVCmyjO23hOzyaltw7oe9dyKxOOEZfmLqyAHeohPVzn0/pMQ//S60FNMlPGYPbK/J6wFOwWu2tzLfzrXb1zfxG2wbQPIMBYuFbo38XEbI8NjvHoCN+FmKBW8z8yu0jpR2cKiVS2Jmy7sZqfddhR46VxL+cQauvi2KflecKUZvbY+aKadDcN8AZFCb+KWt3vGUArrSV5JU4FagtEGPPNu0RPsAr+SIoOgLt16B61wHhcf5LnaRPRGFCSyhZwwWkGTzZVx3OPbB+FcBfFWRMMw5RmtNYrbYbc=
   file_glob: true
   file: target/release/grin-*.*
   skip_cleanup: true
