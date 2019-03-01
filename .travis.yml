@@ -90,5 +90,5 @@ deploy:
   file: target/release/grin-*.*
   skip_cleanup: true
   on:
-    repo: mimblewimble/grin
+    repo: yeastplume/grin
     tags: true
