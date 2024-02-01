@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: get system info
         run: systeminfo
+      - name : MS build version
+        run: msbuild -version
       - name: default rust target cpus
         run: rustc --print target-cpus
       - name: Checkout
